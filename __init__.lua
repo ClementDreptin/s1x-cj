@@ -1,6 +1,7 @@
 Commands = {}
 
 require("src.binds")
+require("src.bots")
 require("src.carepackage")
 require("src.saveload")
 
@@ -15,12 +16,17 @@ local function processdvars(player)
 end
 
 local function initdvars()
-  for funcName in pairs(Commands) do
-    game:setdvar(funcName, "")
+  for funcname in pairs(Commands) do
+    game:setdvar(funcname, "")
   end
 end
 
 local function onplayerconnected(player)
+  if game:isbot(player) == 1 then
+    Bot = player
+    return
+  end
+
   initdvars()
   Commands.binds()
 

@@ -4,6 +4,8 @@ local bindcommands = {
   'bind button_rshldr "set pos_save 0"',
   'bind dpad_left ufo',
   'bind h "set cp_spawn 0"',
+  'bind j "set bot_teleport 0"',
+  'bind k "set bot_move 0"',
 }
 
 local function executebindcommands(_)
