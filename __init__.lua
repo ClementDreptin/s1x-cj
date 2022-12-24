@@ -1,4 +1,8 @@
-require("src.commands")
+Commands = {}
+
+require("src.binds")
+require("src.carepackage")
+require("src.saveload")
 
 local function processdvars(player)
   for funcname, func in pairs(Commands) do

@@ -1,11 +1,3 @@
-local bindcommands = {
-  'set sv_cheats 1',
-  'bind button_lshldr "set pos_load 0"',
-  'bind button_rshldr "set pos_save 0"',
-  'bind dpad_left ufo',
-  'bind h "set cp_spawn 0"',
-}
-
 local brushmodeltable = {
   ["mp_refraction"] = 164,
   ["mp_lab2"] = 215,
@@ -83,32 +75,4 @@ local function spawncarepackage(player)
   carepackage:clonebrushmodeltoscriptmodel(collision)
 end
 
-local function savepos(player)
-  player.savedorigin = player:getorigin()
-  player.savedangles = player:getangles()
-
-  player:iclientprintln("Position ^2Saved")
-end
-
-local function loadpos(player)
-  if player.savedorigin == nil or player.savedangles == nil then
-    player:iclientprintln("^1Save a position first!")
-    return
-  end
-
-  player:setorigin(player.savedorigin)
-  player:setangles(player.savedangles)
-end
-
-local function executebindcommands(_)
-  for _, command in ipairs(bindcommands) do
-    game:executecommand(command)
-  end
-end
-
-Commands = {
-  ["cp_spawn"] = spawncarepackage,
-  ["pos_save"] = savepos,
-  ["pos_load"] = loadpos,
-  ["binds"] = executebindcommands,
-}
+Commands.cp_spawn = spawncarepackage
