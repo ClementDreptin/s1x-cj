@@ -30,5 +30,5 @@ For convenience, the following binds are set:
 If you don't play with a controller or want to use different binds, feel free to change them [here](/src/binds.lua).
 
 ## Notes
-<sup>1</sup> The collision body applied is not the care package one but one that is more flat and easier to stand on.
+<sup>1</sup> The collision body applied is not the care package one but one that is more flat and easier to stand on.\
 <sup>2</sup> This assumes only one bot is in the game. If multiple bots are in the game, the last bot that connected will be targeted.
