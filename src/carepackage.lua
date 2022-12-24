@@ -1,3 +1,5 @@
+require("src.utils")
+
 local brushmodeltable = {
   ["mp_refraction"] = 164,
   ["mp_lab2"] = 215,
@@ -31,10 +33,6 @@ local brushmodeltable = {
   ["mp_seoul2"] = 151,
 }
 
-local function radians(degrees)
-  return degrees * (math.pi / 180)
-end
-
 local function spawncarepackage(player)
   local mapname = game:getdvar("ui_mapname")
   if mapname == nil or mapname == "" then
@@ -48,15 +46,7 @@ local function spawncarepackage(player)
     return
   end
 
-  local playerorigin = player:getorigin()
-  local playerangles = player:getangles()
-
-  local distance = 150
-
-  local carepackageorigin = vector:new(0, 0, 0)
-  carepackageorigin.x = playerorigin.x + (distance * math.cos(radians(playerangles.y)))
-  carepackageorigin.y = playerorigin.y + (distance * math.sin(radians(playerangles.y)))
-  carepackageorigin.z = playerorigin.z
+  local carepackageorigin = Utils.vecproject(player:getorigin(), player:getangles().y, 150)
 
   local carepackage = game:spawn("script_model", carepackageorigin)
   if carepackage == nil then
