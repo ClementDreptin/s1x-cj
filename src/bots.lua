@@ -8,7 +8,7 @@ local function teleportbot(player)
     return
   end
 
-  local botneworigin = Utils.vecproject(player:getorigin(), player:getangles().y, 150)
+  local botneworigin = Utils.projectforward(player, 150)
 
   Bot:setorigin(botneworigin)
 

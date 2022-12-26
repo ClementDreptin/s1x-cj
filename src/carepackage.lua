@@ -46,7 +46,7 @@ local function spawncarepackage(player)
     return
   end
 
-  local carepackageorigin = Utils.vecproject(player:getorigin(), player:getangles().y, 150)
+  local carepackageorigin = Utils.projectforward(player, 150)
 
   local carepackage = game:spawn("script_model", carepackageorigin)
   if carepackage == nil then
