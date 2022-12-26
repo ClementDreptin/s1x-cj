@@ -54,6 +54,8 @@ local function spawncarepackage(player)
     return
   end
 
+  carepackage:rotateyaw(player:getangles().y, 0)
+
   carepackage:setmodel("orbital_carepackage_pod_01_ai")
 
   local collision = game:getentbynum(brushmodelnum)
