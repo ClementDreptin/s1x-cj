@@ -18,7 +18,7 @@ local function teleportbot(player)
   Bot:freezecontrols(Bot.isfrozen)
 end
 
-local function setbotmovement(player)
+local function togglebotmovement(player)
   if Bot == nil then
     player:iclientprintln("^1There is no bot in the game!")
     return
@@ -35,4 +35,4 @@ local function setbotmovement(player)
 end
 
 Commands.bot_teleport = teleportbot
-Commands.bot_move = setbotmovement
+Commands.bot_move = togglebotmovement
