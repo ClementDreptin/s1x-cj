@@ -36,7 +36,7 @@ local brushmodeltable = {
 local function spawncarepackage(player)
   local mapname = game:getdvar("ui_mapname")
   if mapname == nil or mapname == "" then
-    print("Could get te current map's name")
+    print("Could not get the current map's name")
     return
   end
 
